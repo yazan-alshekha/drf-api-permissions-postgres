@@ -24,8 +24,9 @@ SECRET_KEY = 'cb^s4qzs8&2anngazpn=925zn1a%+@-q2+w=oi@y@hd&lam$3^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['0.0.0.0',]
+# for mac 0,0,0,0,0
+# for windows 'localhost'
+ALLOWED_HOSTS = ['0.0.0.0','localhost']
 
 
 # Application definition
@@ -78,8 +79,8 @@ WSGI_APPLICATION = 'website_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'website_project',
-        'USER':'postgresql',
+        'NAME': 'postgres',
+        'USER':'postgres',
         'PASSWORD':'postgres',
         'HOST':'db',
         'PORT':5432
@@ -129,6 +130,6 @@ STATIC_URL = '/static/'
 # add this objects for configrations the restframework
 REST_FRAMEWORK={
     'DEFULT_PERMISSION_CLASS':[
-        'rest_framework.permissions.AllowAny'
+        'rest_framework.permissions.IsAuthenticated',
     ]
 }
